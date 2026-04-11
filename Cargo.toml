@@ -1,0 +1,25 @@
+[package]
+name = "klozeo"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.75"
+description = "Official Rust SDK for the Klozeo Lead Management API"
+license = "MIT"
+repository = "https://github.com/klozeo/sdk-rust"
+documentation = "https://docs.rs/klozeo"
+keywords = ["klozeo", "leads", "crm", "api", "client"]
+categories = ["api-bindings", "web-programming::http-client"]
+
+[dependencies]
+reqwest = { version = "0.12", default-features = false, features = ["json", "stream"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tokio = { version = "1", features = ["full"] }
+thiserror = "1"
+futures = "0.3"
+bytes = "1"
+
+[features]
+default = ["native-tls"]
+native-tls = ["reqwest/native-tls"]
+rustls-tls = ["reqwest/rustls-tls"]
