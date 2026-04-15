@@ -11,14 +11,14 @@ use crate::resources::webhooks::WebhooksResource;
 use crate::types::RateLimitState;
 
 /// Default base URL for the Klozeo API.
-const DEFAULT_BASE_URL: &str = "https://app.klozeo.com/api/v1";
+const DEFAULT_BASE_URL: &str = "https://api.klozeo.com/api/v1";
 
 // ─── ClientConfig ──────────────────────────────────────────────────────────
 
 /// Configuration options for the Klozeo [`Client`].
 #[derive(Debug, Clone)]
 pub struct ClientConfig {
-    /// API base URL. Defaults to `https://app.klozeo.com/api/v1`.
+    /// API base URL. Defaults to `https://api.klozeo.com/api/v1`.
     pub base_url: String,
     /// Per-request timeout.
     pub timeout: Duration,

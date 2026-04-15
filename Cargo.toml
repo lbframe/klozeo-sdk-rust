@@ -1,11 +1,11 @@
 [package]
 name = "klozeo"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 rust-version = "1.75"
 description = "Official Rust SDK for the Klozeo Lead Management API"
 license = "MIT"
-repository = "https://github.com/lbframe/sdk-rust"
+repository = "https://github.com/lbframe/klozeo-sdk-rust"
 documentation = "https://docs.rs/klozeo"
 keywords = ["klozeo", "leads", "crm", "api", "client"]
 categories = ["api-bindings", "web-programming::http-client"]
