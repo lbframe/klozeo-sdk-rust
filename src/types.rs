@@ -31,6 +31,7 @@ pub struct LeadResponse {
     pub tags: Vec<String>,
     pub source_id: Option<String>,
     pub logo_url: Option<String>,
+    pub status: Option<String>,
     /// Custom dynamic attributes.
     pub attributes: Vec<AttributeResponse>,
     /// Unix timestamp (seconds) when the lead was created.
@@ -181,6 +182,8 @@ pub struct LeadInput {
     pub source_id: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub logo_url: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub status: Option<String>,
     #[serde(skip_serializing_if = "Vec::is_empty")]
     pub attributes: Vec<Attribute>,
 }
@@ -214,6 +217,7 @@ pub struct LeadInputBuilder {
     tags: Vec<String>,
     source_id: Option<String>,
     logo_url: Option<String>,
+    status: Option<String>,
     attributes: Vec<Attribute>,
 }
 
@@ -313,6 +317,11 @@ impl LeadInputBuilder {
         self.logo_url = Some(v.into());
         self
     }
+    /// Set the pipeline status.
+    pub fn status(mut self, v: impl Into<String>) -> Self {
+        self.status = Some(v.into());
+        self
+    }
     /// Set custom attributes.
     pub fn attributes(mut self, v: Vec<Attribute>) -> Self {
         self.attributes = v;
@@ -343,6 +352,7 @@ impl LeadInputBuilder {
             tags: self.tags,
             source_id: self.source_id,
             logo_url: self.logo_url,
+            status: self.status,
             attributes: self.attributes,
         }
     }
@@ -393,6 +403,8 @@ pub struct UpdateLeadInput {
     pub source_id: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub logo_url: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub status: Option<String>,
 }
 
 impl UpdateLeadInput {
@@ -500,6 +512,11 @@ impl UpdateLeadInputBuilder {
     /// Set the logo URL.
     pub fn logo_url(mut self, v: impl Into<String>) -> Self {
         self.0.logo_url = Some(v.into());
+        self
+    }
+    /// Set the pipeline status.
+    pub fn status(mut self, v: impl Into<String>) -> Self {
+        self.0.status = Some(v.into());
         self
     }
     /// Build the [`UpdateLeadInput`].
