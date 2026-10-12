@@ -120,3 +120,7 @@ match client.leads().get("cl_nonexistent").await {
 - API Reference: <https://docs.klozeo.com>
 - crates.io: <https://crates.io/crates/klozeo>
 - docs.rs: <https://docs.rs/klozeo>
+
+## License
+
+MIT. See [LICENSE](LICENSE).
